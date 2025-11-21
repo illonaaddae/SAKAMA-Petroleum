@@ -24,7 +24,7 @@ function About() {
             fully owned Ghanaian Company and registered under the Laws of Ghana
             in the Oil and Gas arena. We are a Partner of TOTALENERGIES in the
             area of Retail Network/Fuel stations development, a Dealer of
-            TotalEnergies at Tarkwa 2 and Simpa outlets in the Western region of
+            TotalEnergies at Tarkwa and Simpa outlets in the Western region of
             Ghana.
           </p>
         </div>
@@ -38,7 +38,7 @@ function About() {
             </li>
             <li>
               <strong>Fuel Distribution:</strong> Dealer of TotalEnergies at
-              Tarkwa 2 and Simpa outlets in the Western region
+              Tarkwa  and Simpa outlets in the Western region
             </li>
             <li>
               <strong>End-to-End Lubricants Supply:</strong> Comprehensive

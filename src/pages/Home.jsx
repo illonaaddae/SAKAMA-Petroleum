@@ -14,7 +14,7 @@ const services = [
     id: "fuel",
     title: "Fuel Distribution",
     description:
-      "Dealer of TotalEnergies at Tarkwa 2 and Simpa outlets in the Western region of Ghana.",
+      "Dealer of TotalEnergies at Tarkwa  and Simpa outlets in the Western region of Ghana.",
   },
   {
     id: "lubricants",
