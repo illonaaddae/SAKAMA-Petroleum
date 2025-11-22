@@ -27,8 +27,8 @@
 }
 
 .brand-logo {
-  width: 120px;
-  height: 40px;
+  width: auto;
+  height: 60px;
   flex-shrink: 0;
 }
 
@@ -282,39 +282,172 @@ h1 {
 .services h2,
 .legacy h2,
 .operations h2 {
-  margin: 0 0 1.5rem;
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  background: linear-gradient(
+    135deg,
+    var(--text-primary),
+    var(--text-secondary)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .services {
-  text-align: center;
+  position: relative;
+  padding: 3rem 0;
+  overflow: hidden;
 }
 
-.service-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+.services-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  padding: 0 clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.services-subtitle {
+  margin-top: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.service-scroll-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 1rem 0 2rem;
+}
+
+.service-scroll-container::before,
+.service-scroll-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.service-scroll-container::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-primary), transparent);
+}
+
+.service-scroll-container::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-primary), transparent);
+}
+
+.service-scroll-track {
+  display: flex;
   gap: 1.5rem;
+  animation: scroll-infinite 40s linear infinite;
+  will-change: transform;
+  padding-left: clamp(1.25rem, 4vw, 2.5rem);
+  padding-right: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.service-scroll-container:hover .service-scroll-track {
+  animation-play-state: paused;
+}
+
+@keyframes scroll-infinite {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .service-card {
   background: var(--bg-card-solid);
-  border-radius: 18px;
-  padding: 1.5rem;
+  border-radius: 20px;
+  overflow: hidden;
   text-align: left;
   border: 1px solid var(--border-color);
   box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-width: 320px;
+  max-width: 320px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-strong);
+  border-color: var(--accent);
+}
+
+.service-image-wrapper {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background: var(--bg-card);
+  position: relative;
+}
+
+.service-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.service-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(3, 11, 24, 0.3) 70%,
+    rgba(3, 11, 24, 0.6) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.service-card:hover .service-image-wrapper img {
+  transform: scale(1.1);
+}
+
+.service-card:hover .service-image-overlay {
+  opacity: 1;
+}
+
+.service-card-content {
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
 }
 
 .service-card .icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
-  background: rgba(248, 163, 51, 0.15);
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(
+    135deg,
+    rgba(248, 163, 51, 0.2),
+    rgba(240, 199, 94, 0.15)
+  );
   display: grid;
   place-items: center;
   color: var(--accent);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.service-card:hover .icon {
+  background: linear-gradient(135deg, var(--accent), var(--accent-alt));
+  color: #1b1207;
+  transform: scale(1.1);
 }
 
 .service-card svg {
@@ -325,11 +458,28 @@ h1 {
 
 .service-card h3 {
   margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.3;
+  color: var(--text-primary);
 }
 
 .service-card p {
   margin: 0;
   color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+  .service-card {
+    min-width: 280px;
+    max-width: 280px;
+  }
+
+  .service-scroll-container::before,
+  .service-scroll-container::after {
+    width: 50px;
+  }
 }
 
 .legacy-card {
@@ -339,15 +489,62 @@ h1 {
     var(--bg-card-solid)
   );
   border-radius: 20px;
-  padding: clamp(1.75rem, 5vw, 2.75rem);
+  padding: 0;
   border: 1px solid var(--border-color);
   box-shadow: var(--shadow-soft);
+  overflow: hidden;
 }
 
-.legacy-card p {
-  margin: 1rem 0 0;
+.legacy-content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  align-items: center;
+}
+
+.legacy-text {
+  padding: clamp(1.75rem, 5vw, 2.75rem);
+}
+
+.legacy-text h2 {
+  margin: 0 0 1rem;
+}
+
+.legacy-text p {
+  margin: 0;
   color: var(--text-secondary);
-  max-width: 720px;
+  max-width: 100%;
+}
+
+.legacy-image-wrapper {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  overflow: hidden;
+  background: var(--bg-card);
+  position: relative;
+}
+
+.legacy-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.legacy-card:hover .legacy-image-wrapper img {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .legacy-content-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .legacy-image-wrapper {
+    min-height: 250px;
+    order: -1;
+  }
 }
 
 .operation-grid {
@@ -493,6 +690,10 @@ body {
     animation: none;
     opacity: 1;
     transform: none;
+  }
+
+  .service-scroll-track {
+    animation: none;
   }
 }
 
