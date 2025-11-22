@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Logo from "./Logo";
 import "../App.css";
 
@@ -25,6 +25,7 @@ const ThemeIcon = ({ theme }) =>
 function Layout({ children, theme, setTheme }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
@@ -56,10 +57,6 @@ function Layout({ children, theme, setTheme }) {
     };
   }, [mobileMenuOpen]);
 
-  useEffect(() => {
-    setMobileMenuOpen(false);
-  }, [location]);
-
   const toggleTheme = () => {
     setTheme((prev) => (prev === "dark" ? "light" : "dark"));
   };
@@ -77,7 +74,13 @@ function Layout({ children, theme, setTheme }) {
       e.preventDefault();
       const hash = path.substring(1);
       if (location.pathname !== "/") {
-        window.location.href = path;
+        navigate("/");
+        setTimeout(() => {
+          const element = document.querySelector(hash);
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 200);
       } else {
         setTimeout(() => {
           const element = document.querySelector(hash);
@@ -114,6 +117,7 @@ function Layout({ children, theme, setTheme }) {
               key={link.path}
               to={link.path}
               onClick={(e) => handleNavClick(e, link.path)}
+              className={link.name === "About Us" ? "nav-link-about" : ""}
             >
               {link.name}
             </Link>
@@ -157,4 +161,3 @@ function Layout({ children, theme, setTheme }) {
 }
 
 export default Layout;
-

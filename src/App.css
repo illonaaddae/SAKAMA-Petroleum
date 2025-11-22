@@ -53,6 +53,14 @@
   font-weight: 500;
   text-decoration: none;
   transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+/* Allow "About Us" to wrap only on larger desktop screens */
+@media (min-width: 1024px) {
+  .nav-links a.nav-link-about {
+    white-space: normal;
+  }
 }
 
 .nav-links a:hover {

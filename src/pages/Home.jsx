@@ -1,4 +1,5 @@
 import { useMemo, useRef, useState, useEffect, useCallback } from "react";
+import { Link } from "react-router-dom";
 import heroImageAsset from "../assets/hero.png";
 import OperationImage from "../components/OperationImage";
 import retailNetworkImage from "../assets/Retail Network.jpg";
@@ -106,8 +107,29 @@ function Home() {
         setIsPaused(false);
         const track = scrollTrackRef.current;
         if (track) {
-          // Reset transform to let animation take over
-          track.style.transform = "";
+          // Normalize position to be within animation range for seamless loop
+          const style = window.getComputedStyle(track);
+          const matrix = new DOMMatrix(style.transform);
+          const currentX = matrix.m41;
+          const trackWidth = track.scrollWidth / 2; // Half because we duplicate
+
+          // Wrap position to be within 0 to -trackWidth range for seamless loop
+          let normalizedX = currentX;
+          if (trackWidth > 0) {
+            normalizedX = ((currentX % trackWidth) + trackWidth) % trackWidth;
+            if (normalizedX > trackWidth / 2) {
+              normalizedX -= trackWidth;
+            }
+          }
+
+          // Smoothly transition to normalized position, then let animation take over
+          track.style.transition = "transform 0.3s ease-out";
+          track.style.transform = `translateX(${normalizedX}px)`;
+
+          setTimeout(() => {
+            track.style.transition = "";
+            track.style.transform = "";
+          }, 300);
         }
       }
     }, 3000);
@@ -153,14 +175,8 @@ function Home() {
       if (!track) return;
       const deltaX = e.pageX - startX;
       const newTranslate = currentTranslate + deltaX;
-      // Limit scrolling to prevent going too far
-      const maxTranslate = -(track.scrollWidth / 2);
-      const minTranslate = 0;
-      const clampedTranslate = Math.max(
-        maxTranslate,
-        Math.min(minTranslate, newTranslate)
-      );
-      track.style.transform = `translateX(${clampedTranslate}px)`;
+      // Allow free dragging - no clamping for infinite scroll feel
+      track.style.transform = `translateX(${newTranslate}px)`;
     };
 
     // Touch events for mobile
@@ -185,13 +201,8 @@ function Home() {
       if (!track) return;
       const deltaX = e.touches[0].pageX - startX;
       const newTranslate = currentTranslate + deltaX;
-      const maxTranslate = -(track.scrollWidth / 2);
-      const minTranslate = 0;
-      const clampedTranslate = Math.max(
-        maxTranslate,
-        Math.min(minTranslate, newTranslate)
-      );
-      track.style.transform = `translateX(${clampedTranslate}px)`;
+      // Allow free dragging - no clamping for infinite scroll feel
+      track.style.transform = `translateX(${newTranslate}px)`;
     };
 
     const handleTouchEnd = () => {
@@ -243,9 +254,9 @@ function Home() {
               GH₵ annual turnover, we power businesses and communities forward.
             </p>
             <div className="hero-actions">
-              <a href="/about" className="btn primary">
+              <Link to="/about" className="btn primary">
                 Learn More
-              </a>
+              </Link>
               <a
                 href="#locations"
                 className="btn secondary"
