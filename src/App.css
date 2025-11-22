@@ -344,14 +344,26 @@ h1 {
 .service-scroll-track {
   display: flex;
   gap: 1.5rem;
-  animation: scroll-infinite 40s linear infinite;
+  animation: scroll-infinite 30s linear infinite;
   will-change: transform;
   padding-left: clamp(1.25rem, 4vw, 2.5rem);
   padding-right: clamp(1.25rem, 4vw, 2.5rem);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  touch-action: pan-x;
+  cursor: grab;
 }
 
-.service-scroll-container:hover .service-scroll-track {
-  animation-play-state: paused;
+.service-scroll-track.paused {
+  animation-play-state: paused !important;
+}
+
+@media (max-width: 768px) {
+  .service-scroll-track {
+    animation: scroll-infinite 20s linear infinite;
+  }
 }
 
 @keyframes scroll-infinite {
@@ -359,7 +371,7 @@ h1 {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(calc(-50% - clamp(1.25rem, 4vw, 2.5rem)));
   }
 }
 

@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useRef, useState, useEffect, useCallback } from "react";
 import heroImageAsset from "../assets/hero.png";
 import OperationImage from "../components/OperationImage";
 import retailNetworkImage from "../assets/Retail Network.jpg";
@@ -89,6 +89,140 @@ const operations = [
 
 function Home() {
   const heroImage = useMemo(() => heroImageAsset, []);
+  const scrollTrackRef = useRef(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [currentTranslate, setCurrentTranslate] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const pauseTimeoutRef = useRef(null);
+
+  const resumeAutoScroll = useCallback(() => {
+    // Resume auto-scroll after 3 seconds of no interaction
+    if (pauseTimeoutRef.current) {
+      clearTimeout(pauseTimeoutRef.current);
+    }
+    pauseTimeoutRef.current = setTimeout(() => {
+      if (!isDragging) {
+        setIsPaused(false);
+        const track = scrollTrackRef.current;
+        if (track) {
+          // Reset transform to let animation take over
+          track.style.transform = "";
+        }
+      }
+    }, 3000);
+  }, [isDragging]);
+
+  useEffect(() => {
+    const track = scrollTrackRef.current;
+    if (!track) return;
+
+    const handleMouseDown = (e) => {
+      setIsDragging(true);
+      setIsPaused(true);
+      setStartX(e.pageX);
+      // Get current transform value
+      const style = window.getComputedStyle(track);
+      const matrix = new DOMMatrix(style.transform);
+      setCurrentTranslate(matrix.m41);
+      track.style.cursor = "grabbing";
+      track.style.animationPlayState = "paused";
+      track.style.transform = `translateX(${matrix.m41}px)`;
+
+      // Clear any existing timeout
+      if (pauseTimeoutRef.current) {
+        clearTimeout(pauseTimeoutRef.current);
+      }
+    };
+
+    const handleMouseUp = () => {
+      if (isDragging) {
+        setIsDragging(false);
+        const track = scrollTrackRef.current;
+        if (track) {
+          track.style.cursor = "grab";
+        }
+        resumeAutoScroll();
+      }
+    };
+
+    const handleMouseMove = (e) => {
+      if (!isDragging) return;
+      e.preventDefault();
+      const track = scrollTrackRef.current;
+      if (!track) return;
+      const deltaX = e.pageX - startX;
+      const newTranslate = currentTranslate + deltaX;
+      // Limit scrolling to prevent going too far
+      const maxTranslate = -(track.scrollWidth / 2);
+      const minTranslate = 0;
+      const clampedTranslate = Math.max(
+        maxTranslate,
+        Math.min(minTranslate, newTranslate)
+      );
+      track.style.transform = `translateX(${clampedTranslate}px)`;
+    };
+
+    // Touch events for mobile
+    const handleTouchStart = (e) => {
+      setIsDragging(true);
+      setIsPaused(true);
+      setStartX(e.touches[0].pageX);
+      const style = window.getComputedStyle(track);
+      const matrix = new DOMMatrix(style.transform);
+      setCurrentTranslate(matrix.m41);
+      track.style.transform = `translateX(${matrix.m41}px)`;
+
+      if (pauseTimeoutRef.current) {
+        clearTimeout(pauseTimeoutRef.current);
+      }
+    };
+
+    const handleTouchMove = (e) => {
+      if (!isDragging) return;
+      e.preventDefault();
+      const track = scrollTrackRef.current;
+      if (!track) return;
+      const deltaX = e.touches[0].pageX - startX;
+      const newTranslate = currentTranslate + deltaX;
+      const maxTranslate = -(track.scrollWidth / 2);
+      const minTranslate = 0;
+      const clampedTranslate = Math.max(
+        maxTranslate,
+        Math.min(minTranslate, newTranslate)
+      );
+      track.style.transform = `translateX(${clampedTranslate}px)`;
+    };
+
+    const handleTouchEnd = () => {
+      if (isDragging) {
+        setIsDragging(false);
+        resumeAutoScroll();
+      }
+    };
+
+    // Add listeners to track for start events
+    track.addEventListener("mousedown", handleMouseDown);
+    track.addEventListener("touchstart", handleTouchStart, { passive: false });
+
+    // Add global listeners for move and end events (important for dragging)
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseup", handleMouseUp);
+    document.addEventListener("touchmove", handleTouchMove, { passive: false });
+    document.addEventListener("touchend", handleTouchEnd);
+
+    return () => {
+      track.removeEventListener("mousedown", handleMouseDown);
+      track.removeEventListener("touchstart", handleTouchStart);
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseup", handleMouseUp);
+      document.removeEventListener("touchmove", handleTouchMove);
+      document.removeEventListener("touchend", handleTouchEnd);
+      if (pauseTimeoutRef.current) {
+        clearTimeout(pauseTimeoutRef.current);
+      }
+    };
+  }, [isDragging, startX, currentTranslate, resumeAutoScroll]);
 
   return (
     <main>
@@ -138,7 +272,15 @@ function Home() {
           </p>
         </div>
         <div className="service-scroll-container">
-          <div className="service-scroll-track">
+          <div
+            className={`service-scroll-track ${
+              isPaused || isDragging ? "paused" : ""
+            }`}
+            ref={scrollTrackRef}
+            style={{
+              cursor: isDragging ? "grabbing" : "grab",
+            }}
+          >
             {/* First set of services */}
             {services.map((service) => (
               <article key={`${service.id}-1`} className="service-card">
