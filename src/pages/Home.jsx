@@ -7,6 +7,9 @@ import fuelDistributionImage from "../assets/Fuel-distribution.jpg";
 import lubricantsSupplyImage from "../assets/Lubricants-supplies.jpg";
 import cleanFuelingImage from "../assets/Clean-fueling.jpg";
 import fuelStationImage from "../assets/Fuel-station.jpg";
+import simpaStationImage from "../assets/Sakama-wassa simpa.webp";
+import sakamaMart1 from "../assets/Sakama-mart-1.webp";
+import sakamaMart2 from "../assets/Sakama-mart-2.webp";
 import "../App.css";
 
 // Service icons as SVG components for better control
@@ -218,7 +221,7 @@ const operations = [
     title: "Fuel Stations",
     description:
       "Modern TotalEnergies Ghana partner stations serving motorists",
-    image: fuelStationImage,
+    image: simpaStationImage,
     fallback: fuelStationImage,
   },
   {
@@ -230,13 +233,13 @@ const operations = [
   {
     title: "Lubricants Shop",
     description: "Premium oils and lubricants for all vehicle types",
-    image: lubricantsSupplyImage,
+    image: sakamaMart1,
     fallback: lubricantsSupplyImage,
   },
   {
     title: "Customer Service",
     description: "Friendly staff dedicated to your satisfaction",
-    image: retailNetworkImage,
+    image: sakamaMart2,
     fallback: retailNetworkImage,
   },
 ];
@@ -292,7 +295,7 @@ const faqs = [
 ];
 
 function Home() {
-  const heroImage = useMemo(() => heroImageAsset, []);
+  const heroImage = useMemo(() => simpaStationImage, []);
   const [activeFaq, setActiveFaq] = useState(null);
 
   const toggleFaq = (index) => {
@@ -492,72 +495,38 @@ function Home() {
         </div>
         <div className="locations-grid">
           <div className="location-card reveal">
-            <div className="location-icon">
-              <svg
-                viewBox="0 0 48 48"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M24 4C16.268 4 10 10.268 10 18C10 28 24 44 24 44C24 44 38 28 38 18C38 10.268 31.732 4 24 4Z"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <circle
-                  cx="24"
-                  cy="18"
-                  r="6"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                />
-              </svg>
+            <div className="location-image">
+              <img src={fuelStationImage} alt="Tarkwa Station" />
             </div>
-            <h3>Tarkwa Station</h3>
-            <p className="location-address">Tarkwa, Western Region, Ghana</p>
-            <p className="location-desc">
-              Our flagship station serving the Tarkwa Municipality since 2010.
-              Providing quality TotalEnergies Ghana fuel and lubricants.
-            </p>
-            <div className="location-badge">
-              <span>⛽ TotalEnergies Ghana Partner</span>
+            <div className="location-content">
+              <h3>Tarkwa Station</h3>
+              <p className="location-address">Tarkwa, Western Region, Ghana</p>
+              <p className="location-desc">
+                Our flagship station serving the Tarkwa Municipality since 2010.
+                Providing quality TotalEnergies Ghana fuel and lubricants.
+              </p>
+              <div className="location-badge">
+                <span>⛽ TotalEnergies Ghana Partner</span>
+              </div>
             </div>
           </div>
           <div
             className="location-card reveal"
             style={{ animationDelay: "0.15s" }}
           >
-            <div className="location-icon">
-              <svg
-                viewBox="0 0 48 48"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M24 4C16.268 4 10 10.268 10 18C10 28 24 44 24 44C24 44 38 28 38 18C38 10.268 31.732 4 24 4Z"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <circle
-                  cx="24"
-                  cy="18"
-                  r="6"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                />
-              </svg>
+            <div className="location-image">
+              <img src={simpaStationImage} alt="Simpa Station" />
             </div>
-            <h3>Simpa Station</h3>
-            <p className="location-address">Simpa, Western Region, Ghana</p>
-            <p className="location-desc">
-              Our newest outlet opened in 2021, extending our reach to serve
-              more communities in the Western Region.
-            </p>
-            <div className="location-badge">
-              <span>⛽ TotalEnergies Ghana Partner</span>
+            <div className="location-content">
+              <h3>Simpa Station</h3>
+              <p className="location-address">Simpa, Western Region, Ghana</p>
+              <p className="location-desc">
+                Our newest outlet opened in 2021, extending our reach to serve
+                more communities in the Western Region.
+              </p>
+              <div className="location-badge">
+                <span>⛽ TotalEnergies Ghana Partner</span>
+              </div>
             </div>
           </div>
         </div>
