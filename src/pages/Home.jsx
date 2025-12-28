@@ -188,7 +188,7 @@ const services = [
     id: "lubricants",
     title: "Lubricants & Oil Supply",
     description:
-      "Premium lubricants and engine oils distribution to the Tarkwa Municipality, serving mining companies and vehicle operators.",
+      "Total lubricants and engine oils distribution to the Tarkwa Municipality, serving mining companies and vehicle operators.",
     image: lubricantsSupplyImage,
     icon: "oilDrop",
     highlight: "Mining Sector",
