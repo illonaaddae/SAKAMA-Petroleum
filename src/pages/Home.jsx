@@ -359,7 +359,7 @@ function Home() {
           <span className="section-label">What We Offer</span>
           <h2>Our Core Services</h2>
           <p className="services-subtitle-new">
-            Quality fuel and premium lubricants at our retail stations, with a
+            Quality fuel and Total lubricants at our retail stations, with a
             vision to grow into a full Oil Marketing Company
           </p>
         </div>
