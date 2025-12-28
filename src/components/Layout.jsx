@@ -245,7 +245,7 @@ function Layout({ children, theme, setTheme }) {
         <div className="footer-bottom">
           <div className="footer-partner">
             <span>Authorized Partner of</span>
-            <strong>TotalEnergies</strong>
+            <strong>TotalEnergies Ghana</strong>
           </div>
           <p className="copyright-new">
             © {new Date().getFullYear()} SAKAMA Petroleum, Gas Logistics &

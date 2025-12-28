@@ -108,7 +108,7 @@ const values = [
     icon: "quality",
     title: "Quality First",
     description:
-      "We maintain the highest standards in fuel quality, ensuring every product meets TotalEnergies specifications.",
+      "We maintain the highest standards in fuel quality, ensuring every product meets TotalEnergies Ghana specifications.",
   },
   {
     icon: "trust",
@@ -138,7 +138,7 @@ const values = [
     icon: "partnership",
     title: "Strong Partnerships",
     description:
-      "Our alliance with TotalEnergies exemplifies our commitment to world-class partnerships.",
+      "Our alliance with TotalEnergies Ghana exemplifies our commitment to world-class partnerships.",
   },
 ];
 
@@ -147,13 +147,13 @@ const milestones = [
     year: "2010",
     title: "Tarkwa Station Launch",
     description:
-      "Partnered with TotalEnergies and opened our first fuel station in Tarkwa, Western Region.",
+      "Partnered with TotalEnergies Ghana and opened our first fuel station in Tarkwa, Western Region.",
   },
   {
     year: "2021",
     title: "Simpa Expansion",
     description:
-      "Expanded operations with the opening of our second TotalEnergies station in Simpa.",
+      "Expanded operations with the opening of our second TotalEnergies Ghana station in Simpa.",
   },
   {
     year: "2024",
@@ -170,7 +170,7 @@ const milestones = [
 
 const whyChooseUs = [
   {
-    title: "TotalEnergies Quality",
+    title: "TotalEnergies Ghana Quality",
     description:
       "Access to premium fuel products meeting international standards",
     icon: "✓",
@@ -220,9 +220,9 @@ function About() {
             <span className="section-label">About Us</span>
             <h1>Fueling Ghana's Future</h1>
             <p>
-              A proudly Ghanaian petroleum company partnered with TotalEnergies,
-              delivering quality fuel and energy solutions across the Western
-              Region.
+              A proudly Ghanaian petroleum company partnered with TotalEnergies
+              Ghana, delivering quality fuel and energy solutions across the
+              Western Region.
             </p>
           </div>
         </div>
@@ -238,8 +238,8 @@ function About() {
               <strong>SAKAMA PETROLEUM, GAS LOGISTICS & TRADING LIMITED</strong>{" "}
               is a fully owned Ghanaian company registered under the Laws of
               Ghana in the Oil and Gas sector. We are proud partners of
-              TotalEnergies in retail network development and authorized dealers
-              at Tarkwa and Simpa outlets in the Western Region.
+              TotalEnergies Ghana in retail network development and authorized
+              dealers at Tarkwa and Simpa outlets in the Western Region.
             </p>
             <p>
               With over two decades of experience and an annual turnover
@@ -251,7 +251,7 @@ function About() {
             <div className="about-badges">
               <div className="about-badge">
                 <span className="badge-icon">🤝</span>
-                <span>TotalEnergies Partner</span>
+                <span>TotalEnergies Ghana Partner</span>
               </div>
               <div className="about-badge">
                 <span className="badge-icon">🇬🇭</span>
@@ -465,8 +465,8 @@ function About() {
               Seidu Mohammed Salami leads SAKAMA with a vision of excellence and
               an unwavering commitment to serving Ghana's energy needs. Under
               his leadership, SAKAMA has grown from a local fuel dealer to a
-              trusted partner of TotalEnergies with an annual turnover exceeding
-              One Billion Ghana Cedis.
+              trusted partner of TotalEnergies Ghana with an annual turnover
+              exceeding One Billion Ghana Cedis.
             </p>
             <p className="ceo-bio-new">
               His dedication to continuous improvement, customer satisfaction,

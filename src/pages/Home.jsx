@@ -170,16 +170,16 @@ const services = [
     id: "retail",
     title: "Retail Fuel Stations",
     description:
-      "Operating modern fuel stations in partnership with TotalEnergies, providing quality petroleum products to motorists across Ghana.",
+      "Operating modern fuel stations in partnership with TotalEnergies Ghana, providing quality petroleum products to motorists.",
     image: retailNetworkImage,
     icon: "fuelStation",
-    highlight: "TotalEnergies Partner",
+    highlight: "TotalEnergies Ghana Partner",
   },
   {
     id: "fuel",
     title: "Fuel Distribution",
     description:
-      "Authorized dealer of TotalEnergies at Tarkwa and Simpa outlets in the Western Region, serving communities with reliable fuel supply.",
+      "Authorized dealer of TotalEnergies Ghana at Tarkwa and Simpa outlets in the Western Region, serving communities with reliable fuel supply.",
     image: fuelDistributionImage,
     icon: "fuelPump",
     highlight: "Western Region",
@@ -206,7 +206,7 @@ const services = [
     id: "quality",
     title: "Quality Assurance",
     description:
-      "Committed to international standards in fuel quality, ensuring every drop meets TotalEnergies specifications.",
+      "Committed to international standards in fuel quality, ensuring every drop meets TotalEnergies Ghana specifications.",
     image: fuelStationImage,
     icon: "quality",
     highlight: "Certified Quality",
@@ -216,7 +216,8 @@ const services = [
 const operations = [
   {
     title: "Fuel Stations",
-    description: "Modern TotalEnergies partner stations serving motorists",
+    description:
+      "Modern TotalEnergies Ghana partner stations serving motorists",
     image: fuelStationImage,
     fallback: fuelStationImage,
   },
@@ -251,12 +252,12 @@ const faqs = [
   {
     question: "What types of fuel do you sell?",
     answer:
-      "We sell premium TotalEnergies fuel products including Super (Petrol), Diesel, and Kerosene. All our fuel meets international quality standards through our partnership with TotalEnergies.",
+      "We sell premium TotalEnergies Ghana fuel products including Super (Petrol), Diesel, and Kerosene. All our fuel meets international quality standards through our partnership with TotalEnergies Ghana.",
   },
   {
-    question: "What is your partnership with TotalEnergies?",
+    question: "What is your partnership with TotalEnergies Ghana?",
     answer:
-      "SAKAMA Petroleum operates as an outlet partner of TotalEnergies, one of the world's leading energy companies. This partnership ensures we provide internationally certified, high-quality fuel products to our customers.",
+      "SAKAMA Petroleum operates as an outlet partner of TotalEnergies Ghana. This partnership ensures we provide internationally certified, high-quality fuel products to our customers.",
   },
   {
     question: "What are your operating hours?",
@@ -271,7 +272,7 @@ const faqs = [
   {
     question: "What lubricants do you offer?",
     answer:
-      "We stock a full range of TotalEnergies lubricants including engine oils for cars, motorcycles, and commercial vehicles. Our trained staff can help you choose the right product for your vehicle.",
+      "We stock a full range of TotalEnergies Ghana lubricants including engine oils for cars, motorcycles, and commercial vehicles. Our trained staff can help you choose the right product for your vehicle.",
   },
   {
     question: "Do you offer bulk fuel supply?",
@@ -286,7 +287,7 @@ const faqs = [
   {
     question: "How do you ensure fuel quality?",
     answer:
-      "Quality is our priority. We source exclusively from TotalEnergies, maintain strict storage standards, regularly test our fuel, and keep our equipment well-calibrated. Every drop meets international specifications.",
+      "Quality is our priority. We source exclusively from TotalEnergies Ghana, maintain strict storage standards, regularly test our fuel, and keep our equipment well-calibrated. Every drop meets international specifications.",
   },
 ];
 
@@ -310,14 +311,14 @@ function Home() {
           <div className="hero-content">
             <p className="eyebrow">
               <span className="partner-badge">
-                Official TotalEnergies Partner
+                Official TotalEnergies Ghana Partner
               </span>
             </p>
             <h1>Powering Ghana's Progress</h1>
             <p className="lead">
               SAKAMA is a proudly Ghanaian-owned petroleum company providing
               quality fuel, lubricants, and energy solutions. As an authorized
-              TotalEnergies dealer, we deliver excellence at every pump.
+              TotalEnergies Ghana dealer, we deliver excellence at every pump.
             </p>
             <div className="hero-actions">
               <Link to="/about" className="btn primary">
@@ -409,9 +410,9 @@ function Home() {
               <h2>A Legacy of Trust</h2>
               <p>
                 SAKAMA has matured over the years into a trusted name in Ghana's
-                petroleum industry. As an official TotalEnergies partner, we
-                combine international quality standards with local expertise to
-                serve our customers better.
+                petroleum industry. As an official TotalEnergies Ghana partner,
+                we combine international quality standards with local expertise
+                to serve our customers better.
               </p>
               <p>
                 With an annual turnover exceeding One Billion Ghana Cedis, we
@@ -422,7 +423,7 @@ function Home() {
               <div className="legacy-features">
                 <div className="legacy-feature">
                   <span className="feature-icon">✓</span>
-                  <span>TotalEnergies Quality Standards</span>
+                  <span>TotalEnergies Ghana Quality Standards</span>
                 </div>
                 <div className="legacy-feature">
                   <span className="feature-icon">✓</span>
@@ -485,7 +486,9 @@ function Home() {
         <div className="locations-header">
           <span className="section-label">Find Us</span>
           <h2>Our Locations</h2>
-          <p>Visit our TotalEnergies partner stations in the Western Region</p>
+          <p>
+            Visit our TotalEnergies Ghana partner stations in the Western Region
+          </p>
         </div>
         <div className="locations-grid">
           <div className="location-card reveal">
@@ -515,10 +518,10 @@ function Home() {
             <p className="location-address">Tarkwa, Western Region, Ghana</p>
             <p className="location-desc">
               Our flagship station serving the Tarkwa Municipality since 2010.
-              Providing quality TotalEnergies fuel and lubricants.
+              Providing quality TotalEnergies Ghana fuel and lubricants.
             </p>
             <div className="location-badge">
-              <span>⛽ TotalEnergies Partner</span>
+              <span>⛽ TotalEnergies Ghana Partner</span>
             </div>
           </div>
           <div
@@ -554,7 +557,7 @@ function Home() {
               more communities in the Western Region.
             </p>
             <div className="location-badge">
-              <span>⛽ TotalEnergies Partner</span>
+              <span>⛽ TotalEnergies Ghana Partner</span>
             </div>
           </div>
         </div>
