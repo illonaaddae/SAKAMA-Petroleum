@@ -359,8 +359,8 @@ function Home() {
           <span className="section-label">What We Offer</span>
           <h2>Our Core Services</h2>
           <p className="services-subtitle-new">
-            From retail fuel stations to bulk distribution, we provide
-            comprehensive petroleum solutions across Ghana
+            Quality fuel and premium lubricants at our retail stations, with a
+            vision to grow into a full Oil Marketing Company
           </p>
         </div>
 

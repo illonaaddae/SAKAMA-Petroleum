@@ -1,0 +1,6 @@
+# SAKAMA Petroleum - robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://sakamapetroleum.com/sitemap.xml
