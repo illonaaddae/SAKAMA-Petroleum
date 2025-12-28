@@ -167,6 +167,22 @@ main {
   box-shadow: var(--shadow-strong);
 }
 
+@media (max-width: 768px) {
+  .hero-card {
+    min-height: 500px;
+    background-position: 55% 20%;
+    border-radius: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-card {
+    min-height: 550px;
+    background-position: 50% 15%;
+    border-radius: 12px;
+  }
+}
+
 @media (min-width: 769px) {
   .hero-card {
     min-height: 600px;

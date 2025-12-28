@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import heroImageAsset from "../assets/hero.png";
+// import heroImageAsset from "../assets/hero.png";
 import OperationImage from "../components/OperationImage";
 import retailNetworkImage from "../assets/Retail Network.jpg";
 import fuelDistributionImage from "../assets/Fuel-distribution.jpg";
@@ -182,7 +182,7 @@ const services = [
     id: "fuel",
     title: "Fuel Distribution",
     description:
-      "Authorized dealer of TotalEnergies Ghana at Tarkwa and Simpa outlets in the Western Region, serving communities with reliable fuel supply.",
+      "Authorized dealer of TotalEnergies Ghana at Tarkwa and Wassa Simpa outlets in the Western Region, serving communities with reliable fuel supply.",
     image: fuelDistributionImage,
     icon: "fuelPump",
     highlight: "Western Region",
@@ -209,7 +209,7 @@ const services = [
     id: "quality",
     title: "Quality Assurance",
     description:
-      "Committed to international standards in fuel quality, ensuring every drop meets TotalEnergies Ghana specifications.",
+      "Committed to international standards in fuel quality, ensuring every drop meets TotalEnergies specifications.",
     image: fuelStationImage,
     icon: "quality",
     highlight: "Certified Quality",
@@ -232,7 +232,7 @@ const operations = [
   },
   {
     title: "Lubricants Shop",
-    description: "Premium oils and lubricants for all vehicle types",
+    description: "Quality oils and lubricants for all vehicle types",
     image: sakamaMart1,
     fallback: lubricantsSupplyImage,
   },
@@ -255,7 +255,7 @@ const faqs = [
   {
     question: "What types of fuel do you sell?",
     answer:
-      "We sell premium TotalEnergies Ghana fuel products including Super (Petrol), Diesel, and Kerosene. All our fuel meets international quality standards through our partnership with TotalEnergies Ghana.",
+      "We sell TotalEnergies fuel products including Super (Petrol), Diesel, and Kerosene. All our fuel meets international quality standards through our partnership with TotalEnergies Ghana.",
   },
   {
     question: "What is your partnership with TotalEnergies Ghana?",
@@ -265,7 +265,7 @@ const faqs = [
   {
     question: "What are your operating hours?",
     answer:
-      "Our stations operate 24/7 to serve you at any time. Both our Tarkwa and Simpa outlets are always ready to fuel your journey.",
+      "Our stations operate 24/7 to serve you at any time. Both our Tarkwa and Wassa Simpa outlets are always ready to fuel your journey.",
   },
   {
     question: "Do you accept mobile money payments?",
@@ -275,7 +275,7 @@ const faqs = [
   {
     question: "What lubricants do you offer?",
     answer:
-      "We stock a full range of TotalEnergies Ghana lubricants including engine oils for cars, motorcycles, and commercial vehicles. Our trained staff can help you choose the right product for your vehicle.",
+      "We stock a full range of TotalEnergies lubricants including engine oils for cars, motorcycles, and commercial vehicles. Our trained staff can help you choose the right product for your vehicle.",
   },
   {
     question: "Do you offer bulk fuel supply?",
@@ -285,12 +285,12 @@ const faqs = [
   {
     question: "Where are your stations located?",
     answer:
-      "We have two stations in the Western Region of Ghana: our flagship station in Tarkwa (established 2010) and our Simpa station (opened 2021). Both locations are easily accessible and offer full service.",
+      "We have two stations in the Western Region of Ghana: our flagship station in Tarkwa (established 2010) and our Wassa Simpa station (opened 2021). Both locations are easily accessible and offer full service.",
   },
   {
     question: "How do you ensure fuel quality?",
     answer:
-      "Quality is our priority. We source exclusively from TotalEnergies Ghana, maintain strict storage standards, regularly test our fuel, and keep our equipment well-calibrated. Every drop meets international specifications.",
+      "Quality is our priority. We source exclusively from TotalEnergies, maintain strict storage standards, regularly test our fuel, and keep our equipment well-calibrated. Every drop meets international specifications.",
   },
 ];
 
@@ -426,7 +426,7 @@ function Home() {
               <div className="legacy-features">
                 <div className="legacy-feature">
                   <span className="feature-icon">✓</span>
-                  <span>TotalEnergies Ghana Quality Standards</span>
+                  <span>TotalEnergies Quality Standards</span>
                 </div>
                 <div className="legacy-feature">
                   <span className="feature-icon">✓</span>
@@ -503,7 +503,7 @@ function Home() {
               <p className="location-address">Tarkwa, Western Region, Ghana</p>
               <p className="location-desc">
                 Our flagship station serving the Tarkwa Municipality since 2010.
-                Providing quality TotalEnergies Ghana fuel and lubricants.
+                Providing quality TotalEnergies fuel and lubricants.
               </p>
               <div className="location-badge">
                 <span>⛽ TotalEnergies Ghana Partner</span>
@@ -515,11 +515,13 @@ function Home() {
             style={{ animationDelay: "0.15s" }}
           >
             <div className="location-image">
-              <img src={simpaStationImage} alt="Simpa Station" />
+              <img src={simpaStationImage} alt="Wassa Simpa Station" />
             </div>
             <div className="location-content">
-              <h3>Simpa Station</h3>
-              <p className="location-address">Simpa, Western Region, Ghana</p>
+              <h3>Wassa Simpa Station</h3>
+              <p className="location-address">
+                Wassa Simpa, Western Region, Ghana
+              </p>
               <p className="location-desc">
                 Our newest outlet opened in 2021, extending our reach to serve
                 more communities in the Western Region.

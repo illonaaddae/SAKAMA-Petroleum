@@ -108,7 +108,7 @@ const values = [
     icon: "quality",
     title: "Quality First",
     description:
-      "We maintain the highest standards in fuel quality, ensuring every product meets TotalEnergies Ghana specifications.",
+      "We maintain the highest standards in fuel quality, ensuring every product meets TotalEnergies specifications.",
   },
   {
     icon: "trust",
@@ -151,9 +151,9 @@ const milestones = [
   },
   {
     year: "2021",
-    title: "Simpa Expansion",
+    title: "Wassa Simpa Expansion",
     description:
-      "Expanded operations with the opening of our second TotalEnergies Ghana station in Simpa.",
+      "Expanded operations with the opening of our second TotalEnergies station in Wassa Simpa.",
   },
   {
     year: "2024",
@@ -170,9 +170,9 @@ const milestones = [
 
 const whyChooseUs = [
   {
-    title: "TotalEnergies Ghana Quality",
+    title: "TotalEnergies Quality",
     description:
-      "Access to premium fuel products meeting international standards",
+      "Access to quality fuel products meeting international standards",
     icon: "✓",
   },
   {
@@ -239,7 +239,7 @@ function About() {
               is a fully owned Ghanaian company registered under the Laws of
               Ghana in the Oil and Gas sector. We are proud partners of
               TotalEnergies Ghana in retail network development and authorized
-              dealers at Tarkwa and Simpa outlets in the Western Region.
+              dealers at Tarkwa and Wassa Simpa outlets in the Western Region.
             </p>
             <p>
               With over two decades of experience and an annual turnover
